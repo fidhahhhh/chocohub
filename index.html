@@ -1,0 +1,458 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chocolates| Homemade Chocolate Factory</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #fffaf5;
+            color: #3b2017;
+        }
+
+        /* Navigation */
+        header {
+            background: #3b2017;
+            color: white;
+            padding: 18px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .logo {
+            font-size: 29px;
+            font-weight: bold;
+            color: #ffcc80;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 22px;
+            font-size: 15px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #ffcc80;
+        }
+
+        /* Hero section */
+        .hero {
+            min-height: 570px;
+            padding: 70px 8%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 35px;
+            background: linear-gradient(120deg, #fff4e8, #f2d0ae);
+        }
+
+        .hero-text {
+            max-width: 550px;
+        }
+
+        .hero-text .tagline {
+            color: #9a572c;
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-size: 13px;
+        }
+
+        .hero h1 {
+            font-size: clamp(40px, 5vw, 65px);
+            line-height: 1.12;
+            margin: 20px 0;
+        }
+
+        .hero h1 span {
+            color: #9a572c;
+        }
+
+        .hero p {
+            font-size: 17px;
+            line-height: 1.8;
+            color: #684b3c;
+            margin-bottom: 28px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #6b3525;
+            color: white;
+            text-decoration: none;
+            padding: 14px 28px;
+            border-radius: 30px;
+            border: none;
+            font-size: 15px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #a55b35;
+            transform: translateY(-3px);
+        }
+
+        .hero-image {
+            width: 45%;
+            max-width: 480px;
+            height: 390px;
+            object-fit: cover;
+            border-radius: 48% 48% 18px 18px;
+            box-shadow: 0 15px 35px #684b3c33;
+        }
+
+        /* Features */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            padding: 38px 8%;
+            background: white;
+            text-align: center;
+        }
+
+        .feature {
+            padding: 12px;
+        }
+
+        .feature .icon {
+            font-size: 30px;
+            margin-bottom: 10px;
+        }
+
+        .feature h3 {
+            margin-bottom: 7px;
+        }
+
+        .feature p {
+            color: #80695b;
+            font-size: 14px;
+        }
+
+        /* Products */
+        .products {
+            padding: 75px 8%;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 36px;
+            margin-bottom: 12px;
+        }
+
+        .section-desc {
+            color: #80695b;
+            margin-bottom: 38px;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 7px 25px #542b1710;
+            transition: 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 12px 30px #542b1720;
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 230px;
+            object-fit: cover;
+        }
+
+        .product-info {
+            padding: 23px;
+        }
+
+        .product-info h3 {
+            font-size: 21px;
+            margin-bottom: 10px;
+        }
+
+        .product-info p {
+            color: #80695b;
+            line-height: 1.6;
+            font-size: 14px;
+            min-height: 45px;
+        }
+
+        .price {
+            display: block;
+            color: #9a572c;
+            font-size: 22px;
+            font-weight: bold;
+            margin: 15px 0;
+        }
+
+        /* About section */
+        .about {
+            padding: 70px 8%;
+            background: #f4e5d7;
+            text-align: center;
+        }
+
+        .about p {
+            max-width: 750px;
+            margin: 20px auto 25px;
+            line-height: 1.9;
+            color: #684b3c;
+        }
+
+        /* Contact */
+        .contact {
+            padding: 65px 8%;
+            text-align: center;
+        }
+
+        .contact p {
+            margin: 15px 0 25px;
+            color: #80695b;
+        }
+
+        footer {
+            background: #3b2017;
+            color: white;
+            text-align: center;
+            padding: 25px 15px;
+            line-height: 1.8;
+        }
+
+        footer span {
+            color: #ffcc80;
+        }
+
+        /* Responsive design */
+        @media (max-width: 800px) {
+            header {
+                justify-content: center;
+            }
+
+            nav {
+                text-align: center;
+                line-height: 2.5;
+            }
+
+            nav a {
+                margin: 0 9px;
+            }
+
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                padding-top: 55px;
+            }
+
+            .hero-image {
+                width: 100%;
+                height: 300px;
+            }
+
+            .features {
+                grid-template-columns: 1fr;
+            }
+
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+    <header>
+        <div class="logo">🍫 ChocoHub</div>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#products">Chocolates</a>
+            <a href="#about">About Us</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-text">
+            <div class="tagline">Handmade with love ❤️</div>
+
+            <h1>Happiness in Every <span>Chocolate Bite!</span></h1>
+
+            <p>
+                Welcome to ChocoHub, your happy place for delicious
+                homemade chocolates. Discover rich flavors, handmade
+                treats, and sweet moments made especially for you.
+            </p>
+
+            <a href="#products" class="btn">Explore Chocolates →</a>
+        </div>
+
+        <img
+            class="hero-image"
+            src="https://images.unsplash.com/photo-1548907040-4d42f3e4f9e9?auto=format&fit=crop&w=1000&q=85"
+            alt="Delicious chocolate treats">
+    </section>
+
+    <!-- Features -->
+    <section class="features">
+        <div class="feature">
+            <div class="icon">🍫</div>
+            <h3>Handmade Goodness</h3>
+            <p>Made with care in small batches.</p>
+        </div>
+
+        <div class="feature">
+            <div class="icon">❤️</div>
+            <h3>Made with Love</h3>
+            <p>A little sweetness in every bite.</p>
+        </div>
+
+        <div class="feature">
+            <div class="icon">🎁</div>
+            <h3>Perfect for Gifting</h3>
+            <p>Sweet surprises for every occasion.</p>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products" id="products">
+        <h2 class="section-title">Our Sweet Collection 🍬</h2>
+
+        <p class="section-desc">
+            Discover your favorite handmade chocolate delights.
+        </p>
+
+        <div class="product-grid">
+
+            <div class="product-card">
+                <img
+                    src="https://images.unsplash.com/photo-1511381939415-e44015466834?auto=format&fit=crop&w=800&q=80"
+                    alt="Dark chocolate">
+                <div class="product-info">
+                    <h3>Dark Chocolate</h3>
+                    <p>Rich, smooth, and perfect for dark chocolate lovers.</p>
+                    <span class="price">₹199</span>
+                    <button class="btn" onclick="orderChocolate('Dark Chocolate')">
+                        Order Now
+                    </button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img
+                    src="https://images.unsplash.com/photo-1481391319762-47dff72954d9?auto=format&fit=crop&w=800&q=80"
+                    alt="Milk chocolate treats">
+                <div class="product-info">
+                    <h3>Milk Chocolate</h3>
+                    <p>Creamy, sweet, and lovingly crafted for you.</p>
+                    <span class="price">₹149</span>
+                    <button class="btn" onclick="orderChocolate('Milk Chocolate')">
+                        Order Now
+                    </button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img
+                    src="https://images.unsplash.com/photo-1549007994-cb92caebd54b?auto=format&fit=crop&w=800&q=80"
+                    alt="Chocolate gift box">
+                <div class="product-info">
+                    <h3>Chocolate Gift Box</h3>
+                    <p>A beautiful chocolate surprise for someone special.</p>
+                    <span class="price">₹399</span>
+                    <button class="btn" onclick="orderChocolate('Chocolate Gift Box')">
+                        Order Now
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <h2 class="section-title">Our Chocolate Story 🍫</h2>
+
+        <p>
+            At ChocoHub, we believe chocolate is more than a treat:
+            it is a way to share happiness. Our homemade chocolate
+            collection is designed to make birthdays, celebrations,
+            gifts, and everyday moments extra special.
+            Every chocolate is an invitation to enjoy something sweet!
+        </p>
+
+        <a href="#contact" class="btn">Get in Touch</a>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <h2 class="section-title">Let's Make Life Sweeter!</h2>
+
+        <p>
+            Have a question or want to order chocolates?
+            We'd love to hear from you.
+        </p>
+
+        <a class="btn"
+           href="mailto:hello@chocohub.com?subject=Chocolate%20Order">
+            Contact Us ✉
+        </a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <h3>🍫 <span>ChocoHub</span></h3>
+        <p>Homemade Happiness, One Bite at a Time!</p>
+        <p>© 2026 ChocoHub. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function orderChocolate(productName) {
+            const subject = encodeURIComponent(
+                "Order Request - " + productName
+            );
+
+            const body = encodeURIComponent(
+                "Hello ChocoHub!\n\n" +
+                "I would like to order: " + productName +
+                "\n\nPlease share the ordering details and availability."
+            );
+
+            window.location.href =
+                "mailto:hello@chocohub.com?subject=" +
+                subject + "&body=" + body;
+        }
+    </script>
+
+</body>
+</html>
